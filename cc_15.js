@@ -69,3 +69,20 @@ function colorByRisk() {
     });
 }
 colorByRisk();
+
+//Task 5 Implementing Bulk Updates
+
+riskItems.forEach((card) => {
+    const increaseButton = document.createElement("button");
+    increaseButton.textContent = "Increase Risk Levels";
+    increaseButton.classList.add("increase-button");
+
+    increaseButton.addEventListener("click", function (event) {
+        if (card.textContent.includes(`Medium`)){
+            card.children[1].textContent = "High"
+        }
+        else if (card.textContent.includes(`Low`)){
+            card.children[1].textContent = ("Medium")
+        }
+        colorByRisk();
+    
