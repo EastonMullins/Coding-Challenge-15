@@ -46,3 +46,26 @@ riskCard.appendChild(departmentElement);
 //Add Card to Container
 
 riskContainer.appendChild(riskCard);
+
+
+//Task 4 - Categorizing Risks by Level
+
+let riskItems = Array.from(document.querySelectorAll(".risk-card"));
+
+function colorByRisk() {
+    riskItems.forEach((card) => {
+        if (card.textContent.includes(`High`)){
+        card.style.backgroundColor = "red";
+        card.style.color = "black";
+        }
+        else if (card.textContent.includes(`Medium`)){
+            card.style.backgroundColor = "yellow";
+            card.style.color = "black";
+        }
+        else if (card.textContent.includes(`Low`)){
+            card.style.backgroundColor = "green";
+            card.style.color = "black";
+        }
+    });
+}
+colorByRisk();
