@@ -1,7 +1,6 @@
 // Task 1 - Creating Base Structure
 //Completed in HTML
 
-
 // Task 2 - Adding Risk Items Dynamically
 
 function addRiskItem(riskName, riskLevel, department) {
@@ -18,38 +17,36 @@ function addRiskItem(riskName, riskLevel, department) {
 
     const departmentElement = document.createElement("span");
     departmentElement.textContent = department;
+
+    //Task 3 - Removing Risk Items
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Resolve";
+    removeButton.classList.add("remove-button");
+
+    removeButton.addEventListener("click", function (event) {
+        event.stopPropagation();
+        riskContainer.removeChild(riskCard);
+    });
+
+    // Adding Elements to Risk Card
+
+    riskCard.appendChild(nameElement);
+    riskCard.appendChild(levelElement);
+    riskCard.appendChild(removeButton);
+    riskCard.appendChild(departmentElement);
+
+    //Add Card to Container
+    
+    riskContainer.appendChild(riskCard);
+
 }
 // Test Cases
 addRiskItem("Lost Checks", "High", "Finance");
 addRiskItem("Customer Contract Negotiatons", "Medium", "Marketing");
 addRiskItem("Employee Retention", "Low", "Human Resources");
 
-
-//Task 3 - Removing Risk Items
-
-const removeButton = document.createElement("button");
-removeButton.textContent = "Resolve";
-removeButton.classList.add("remove-button");
-
-removeButton.addEventListener("click", function (event) {
-    event.stopPropagation();
-    riskContainer.removeChild(riskCard);
-});
-
-// Adding Elements to Risk Card
-
-riskCard.appendChild(nameElement);
-riskCard.appendChild(levelElement);
-riskCard.appendChild(removeButton);
-riskCard.appendChild(departmentElement);
-
-//Add Card to Container
-
-riskContainer.appendChild(riskCard);
-
-
 //Task 4 - Categorizing Risks by Level
-
 let riskItems = Array.from(document.querySelectorAll(".risk-card"));
 
 function colorByRisk() {
@@ -85,4 +82,11 @@ riskItems.forEach((card) => {
             card.children[1].textContent = ("Medium")
         }
         colorByRisk();
-    
+
+    // Task 6 - Handling Event Propagation
+    //Also in remove button
+        event.stopPropagation();
+    });
+
+    card.appendChild(increaseButton);
+})
