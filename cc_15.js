@@ -23,3 +23,26 @@ function addRiskItem(riskName, riskLevel, department) {
 addRiskItem("Lost Checks", "High", "Finance");
 addRiskItem("Customer Contract Negotiatons", "Medium", "Marketing");
 addRiskItem("Employee Retention", "Low", "Human Resources");
+
+
+//Task 3 - Removing Risk Items
+
+const removeButton = document.createElement("button");
+removeButton.textContent = "Resolve";
+removeButton.classList.add("remove-button");
+
+removeButton.addEventListener("click", function (event) {
+    event.stopPropagation();
+    riskContainer.removeChild(riskCard);
+});
+
+// Adding Elements to Risk Card
+
+riskCard.appendChild(nameElement);
+riskCard.appendChild(levelElement);
+riskCard.appendChild(removeButton);
+riskCard.appendChild(departmentElement);
+
+//Add Card to Container
+
+riskContainer.appendChild(riskCard);
